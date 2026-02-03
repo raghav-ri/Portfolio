@@ -3,9 +3,9 @@ import { ArrowRight, ExternalLink, Github } from "lucide-react";
 const projects = [
   {
     id: 1,
-    title: "SaaS Landing Page",
-    description: "A beautiful landing page app using React and Tailwind.",
-    image: "/projects/project1.png",
+    title: "Spam SMS Detection",
+    description: "An intelligent SMS spam detection app built with machine learning and React, delivering a clean and responsive UI powered by Tailwind.",
+    link: "https://medium.com/data-science/spam-detection-with-logistic-regression-23e3709e522",
     tags: ["React", "TailwindCSS", "Supabase"],
     demoUrl: "#",
     githubUrl: "#",
