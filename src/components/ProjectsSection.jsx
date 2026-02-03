@@ -5,7 +5,7 @@ const projects = [
     id: 1,
     title: "Spam SMS Detection",
     description: "An intelligent SMS spam detection app built with machine learning and React, delivering a clean and responsive UI powered by Tailwind.",
-    link: "https://medium.com/data-science/spam-detection-with-logistic-regression-23e3709e522",
+    image: "/projects/project1.png",
     tags: ["React", "TailwindCSS", "Supabase"],
     demoUrl: "#",
     githubUrl: "#",
