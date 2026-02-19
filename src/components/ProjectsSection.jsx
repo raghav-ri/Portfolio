@@ -9,7 +9,7 @@ const projects = [
       "A personal finance tracking app with real-time data sync, expense categorization, and insightful spending summaries powered by Firebase.",
     image:"/projects/finance-mgmt.png",
     tags: ["React", "Firebase", "TailwindCSS"],
-    demoUrl: "finance-tracker-zeta-opal.vercel.app",
+    demoUrl: "https://finance-tracker-zeta-opal.vercel.app",
     githubUrl: "https://github.com/raghav-ri/Finance-Tracker.git",
   },
   {
@@ -19,7 +19,7 @@ const projects = [
       "A browser-based study planner with task scheduling, progress tracking, and persistent storage using localStorage — no frameworks needed.",
     image: "/projects/proj5.png",
     tags: ["HTML", "CSS", "JavaScript", "localStorage"],
-    demoUrl: "study-smart-amber.vercel.app",
+    demoUrl: "https://study-smart-amber.vercel.app",
     githubUrl: "https://github.com/raghav-ri/StudySmart.git",
   },
   {
@@ -39,7 +39,7 @@ const projects = [
       "An intelligent SMS spam detection app built with machine learning and React, delivering a clean and responsive UI powered by Tailwind CSS.",
     image: "/projects/proj1.png",
     tags: ["React", "TailwindCSS", "Machine Learning", "Python"],
-    demoUrl: "spam-detection-two.vercel.app",
+    demoUrl: "https://spam-detection-two.vercel.app",
     githubUrl: "https://github.com/raghav-ri/Spam-Detection.git",
   },
   {
