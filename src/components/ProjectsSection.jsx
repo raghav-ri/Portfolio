@@ -3,32 +3,63 @@ import { ArrowRight, ExternalLink, Github } from "lucide-react";
 const projects = [
   {
     id: 1,
-    title: "Spam SMS Detection",
-    description: "An intelligent SMS spam detection app built with machine learning and React, delivering a clean and responsive UI powered by Tailwind.",
-    image: "/projects/project1.png",
-    tags: ["React", "TailwindCSS", "Supabase"],
-    demoUrl: "#",
-    githubUrl: "#",
+    title: "Spam Detection Application",
+    description:
+      "An intelligent SMS spam detection app built with machine learning and React, delivering a clean and responsive UI powered by Tailwind CSS.",
+    image: "/projects/spam-detection.png",
+    tags: ["React", "TailwindCSS", "Machine Learning", "Python"],
+    demoUrl: "spam-detection-two.vercel.app",
+    githubUrl: "https://github.com/raghav-ri/Spam-Detection.git",
   },
   {
     id: 2,
-    title: "Orbit Analytics Dashboard",
+    title: "Finance Tracker",
     description:
-      "Interactive analytics dashboard with data visualization and filtering capabilities.",
-    image: "/projects/project2.png",
-    tags: ["TypeScript", "D3.js", "Next.js"],
-    demoUrl: "#",
-    githubUrl: "#",
+      "A personal finance tracking app with real-time data sync, expense categorization, and insightful spending summaries powered by Firebase.",
+    image: "/projects/finance-tracker.png",
+    tags: ["React", "Firebase", "TailwindCSS"],
+    demoUrl: "finance-tracker-zeta-opal.vercel.app",
+    githubUrl: "https://github.com/raghav-ri/Finance-Tracker.git",
   },
   {
     id: 3,
-    title: "E-commerce Platform",
+    title: "Notesphere",
     description:
-      "Full-featured e-commerce platform with user authentication and payment processing.",
-    image: "/projects/project3.png",
-    tags: ["React", "Node.js", "Stripe"],
+      "A full-stack note-taking platform built on the MERN stack with user authentication, rich text editing, and organized note management.",
+    image: "/projects/notesphere.png",
+    tags: ["MongoDB", "Express", "React", "Node.js"],
+    demoUrl: "https://summer-internship-project-3.onrender.com/",
+    githubUrl: "https://github.com/raghav-ri/Summer-Internship-Project.git",
+  },
+  {
+    id: 4,
+    title: "Literacy Analytics Dashboard",
+    description:
+      "An interactive Power BI dashboard visualizing literacy trends across regions, enabling data-driven insights into education outcomes.",
+    image: "/projects/literacy-dashboard.png",
+    tags: ["Power BI", "Data Analysis", "DAX"],
     demoUrl: "#",
-    githubUrl: "#",
+    githubUrl: "https://github.com/raghav-ri/Literacy-Dashboard.git",
+  },
+  {
+    id: 5,
+    title: "Study Planner App",
+    description:
+      "A browser-based study planner with task scheduling, progress tracking, and persistent storage using localStorage — no frameworks needed.",
+    image: "/projects/study-planner.png",
+    tags: ["HTML", "CSS", "JavaScript", "localStorage"],
+    demoUrl: "study-smart-amber.vercel.app",
+    githubUrl: "https://github.com/raghav-ri/StudySmart.git",
+  },
+  {
+    id: 6,
+    title: "Static Website on AWS S3",
+    description:
+      "A fully static website hosted on Amazon S3 with a custom index page and error handling page, deployed for fast and reliable global access.",
+    image: "/projects/s3-website.png",
+    tags: ["AWS S3", "HTML", "Static Hosting"],
+    demoUrl: "http://raghav-static-wbpage.s3-website.us-east-2.amazonaws.com/",
+    githubUrl: "https://github.com/raghav-ri/Static-webpage-using-s3.git",
   },
 ];
 
@@ -37,7 +68,6 @@ export const ProjectsSection = () => {
     <section id="projects" className="py-24 px-4 relative">
       <div className="container mx-auto max-w-5xl">
         <h2 className="text-3xl md:text-4xl font-bold mb-4 text-center">
-          {" "}
           Featured <span className="text-primary"> Projects </span>
         </h2>
 
@@ -63,13 +93,16 @@ export const ProjectsSection = () => {
               <div className="p-6">
                 <div className="flex flex-wrap gap-2 mb-4">
                   {project.tags.map((tag) => (
-                    <span className="px-2 py-1 text-xs font-medium border rounded-full bg-secondary text-secondary-foreground">
+                    <span
+                      key={tag}
+                      className="px-2 py-1 text-xs font-medium border rounded-full bg-secondary text-secondary-foreground"
+                    >
                       {tag}
                     </span>
                   ))}
                 </div>
 
-                <h3 className="text-xl font-semibold mb-1"> {project.title}</h3>
+                <h3 className="text-xl font-semibold mb-1">{project.title}</h3>
                 <p className="text-muted-foreground text-sm mb-4">
                   {project.description}
                 </p>
@@ -78,6 +111,7 @@ export const ProjectsSection = () => {
                     <a
                       href={project.demoUrl}
                       target="_blank"
+                      rel="noreferrer"
                       className="text-foreground/80 hover:text-primary transition-colors duration-300"
                     >
                       <ExternalLink size={20} />
@@ -85,6 +119,7 @@ export const ProjectsSection = () => {
                     <a
                       href={project.githubUrl}
                       target="_blank"
+                      rel="noreferrer"
                       className="text-foreground/80 hover:text-primary transition-colors duration-300"
                     >
                       <Github size={20} />
@@ -100,6 +135,7 @@ export const ProjectsSection = () => {
           <a
             className="cosmic-button w-fit flex items-center mx-auto gap-2"
             target="_blank"
+            rel="noreferrer"
             href="https://github.com/raghav-ri"
           >
             Check My Github <ArrowRight size={16} />
