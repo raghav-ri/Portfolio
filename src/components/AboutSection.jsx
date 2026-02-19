@@ -1,4 +1,4 @@
-import { Briefcase, Code, User } from "lucide-react";
+import { Briefcase, Cloud, Code, Cpu } from "lucide-react";
 
 export const AboutSection = () => {
   return (
@@ -12,30 +12,29 @@ export const AboutSection = () => {
           {/* LEFT */}
           <div className="space-y-6">
             <h3 className="text-2xl font-semibold">
-              Data Science & ML Engineer | MERN Stack Developer
+              MERN Stack Developer & Cloud DevOps Engineer
             </h3>
 
             <p className="text-muted-foreground">
-              I work at the intersection of <strong>Data Science</strong> and{" "}
-              <strong>full-stack web development</strong>, focusing on building
-              intelligent applications rather than isolated machine learning
-              models. I enjoy transforming raw data into insights and deploying
-              them through scalable web platforms.
+              I build scalable, production-ready web applications using the{" "}
+              <strong>MERN stack</strong> — crafting responsive React interfaces
+              on the frontend and designing robust Node.js/Express APIs backed
+              by MongoDB on the server side.
             </p>
 
             <p className="text-muted-foreground">
-              I use <strong>Machine Learning</strong> for prediction and
-              analysis, and integrate these models into real-world applications
-              using the <strong>MERN stack</strong>. React helps me design
-              interactive user interfaces, while Node.js and Express allow me
-              to expose ML models as APIs that can be consumed by web clients.
+              On the infrastructure side, I work with <strong>Cloud & DevOps</strong> tools
+              to deploy, monitor, and maintain applications — from hosting static
+              sites on <strong>AWS S3</strong> to containerizing services and
+              setting up CI/CD pipelines that keep things running smoothly.
             </p>
 
             <p className="text-muted-foreground">
-              This combination allows me to build end-to-end systems — from data
-              collection and model training to deployment, visualization, and
-              user interaction — making solutions practical, accessible, and
-              impactful.
+              I also have a growing curiosity for{" "}
+              <strong>Machine Learning</strong> — I've explored it through
+              hands-on projects like spam detection, and I enjoy understanding
+              how intelligent systems work, even if it's not my primary focus
+              right now.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 pt-4 justify-center">
@@ -60,13 +59,11 @@ export const AboutSection = () => {
                   <Code className="h-6 w-6 text-primary" />
                 </div>
                 <div className="text-left">
-                  <h4 className="font-semibold text-lg">
-                    Data Science & Machine Learning
-                  </h4>
+                  <h4 className="font-semibold text-lg">MERN Stack Development</h4>
                   <p className="text-muted-foreground">
-                    Data preprocessing, exploratory analysis, visualization,
-                    and machine learning model development using Python,
-                    Pandas, NumPy, Scikit-learn, and Matplotlib.
+                    Building full-stack web applications with React, Node.js,
+                    Express, and MongoDB — from interactive UIs to RESTful APIs
+                    and database design.
                   </p>
                 </div>
               </div>
@@ -75,16 +72,14 @@ export const AboutSection = () => {
             <div className="gradient-border p-6 card-hover">
               <div className="flex items-start gap-4">
                 <div className="p-3 rounded-full bg-primary/10">
-                  <User className="h-6 w-6 text-primary" />
+                  <Cloud className="h-6 w-6 text-primary" />
                 </div>
                 <div className="text-left">
-                  <h4 className="font-semibold text-lg">
-                    MERN Stack Integration
-                  </h4>
+                  <h4 className="font-semibold text-lg">Cloud & DevOps</h4>
                   <p className="text-muted-foreground">
-                    Integrating machine learning models into web applications
-                    using React for frontend, Node.js and Express for APIs, and
-                    MongoDB for data storage.
+                    Deploying and managing applications on AWS, working with S3,
+                    EC2, and cloud hosting. Setting up CI/CD workflows and
+                    containerizing apps with Docker for reliable delivery.
                   </p>
                 </div>
               </div>
@@ -93,16 +88,20 @@ export const AboutSection = () => {
             <div className="gradient-border p-6 card-hover">
               <div className="flex items-start gap-4">
                 <div className="p-3 rounded-full bg-primary/10">
-                  <Briefcase className="h-6 w-6 text-primary" />
+                  <Cpu className="h-6 w-6 text-primary" />
                 </div>
                 <div className="text-left">
                   <h4 className="font-semibold text-lg">
-                    End-to-End Project Development
+                    ML Curiosity{" "}
+                    <span className="text-xs font-normal text-muted-foreground ml-1">
+                      — exploring on the side
+                    </span>
                   </h4>
                   <p className="text-muted-foreground">
-                    Building complete solutions by combining data analysis,
-                    machine learning, backend APIs, and frontend interfaces
-                    into production-ready applications.
+                    Curious about how machine learning models work under the
+                    hood. I've built small projects with Scikit-learn and Python,
+                    and enjoy integrating ML outputs into web apps when the
+                    problem calls for it.
                   </p>
                 </div>
               </div>
