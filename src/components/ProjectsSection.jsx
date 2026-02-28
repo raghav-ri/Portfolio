@@ -3,7 +3,17 @@ import { ArrowRight, ExternalLink, Github } from "lucide-react";
 
 const projects = [
   {
-    id: 1,
+  id: 1,
+  title: "Leave Management System",
+  description:
+    "A full-stack Leave Management System where employees can apply for leave, track request status, and view leave history, while admins can manage users and approve or reject requests. Features secure authentication, role-based access control, and real-time updates.",
+  image: "/projects/image.png",
+  tags: ["React", "Node.js", "Express", "MongoDB", "JWT", "TailwindCSS"],
+  demoUrl: "leave-management-platform.vercel.app",
+  githubUrl: "https://github.com/raghav-ri/Leave-Management-System.git",
+},
+  {
+    id: 2,
     title: "Finance Tracker",
     description:
       "A personal finance tracking app with real-time data sync, expense categorization, and insightful spending summaries powered by Firebase.",
@@ -13,7 +23,7 @@ const projects = [
     githubUrl: "https://github.com/raghav-ri/Finance-Tracker.git",
   },
   {
-    id: 2,
+    id: 3,
     title: "Study Planner App",
     description:
       "A browser-based study planner with task scheduling, progress tracking, and persistent storage using localStorage — no frameworks needed.",
@@ -23,7 +33,7 @@ const projects = [
     githubUrl: "https://github.com/raghav-ri/StudySmart.git",
   },
   {
-    id: 3,
+    id: 4,
     title: "Static Website on AWS S3",
     description:
       "A fully static website hosted on Amazon S3 with a custom index page and error handling page, deployed for fast and reliable global access.",
@@ -33,7 +43,7 @@ const projects = [
     githubUrl: "https://github.com/raghav-ri/Static-webpage-using-s3.git",
   },
   {
-    id: 4,
+    id: 5,
     title: "Spam Detection Application",
     description:
       "An intelligent SMS spam detection app built with machine learning and React, delivering a clean and responsive UI powered by Tailwind CSS.",
@@ -43,7 +53,7 @@ const projects = [
     githubUrl: "https://github.com/raghav-ri/Spam-Detection.git",
   },
   {
-    id: 5,
+    id: 6,
     title: "Notesphere",
     description:
       "A full-stack note-taking platform built on the MERN stack with user authentication, rich text editing, and organized note management.",
@@ -53,7 +63,7 @@ const projects = [
     githubUrl: "https://github.com/raghav-ri/Summer-Internship-Project.git",
   },
   {
-    id: 6,
+    id: 7,
     title: "Literacy Analytics Dashboard",
     description:
       "An interactive Power BI dashboard visualizing literacy trends across regions, enabling data-driven insights into education outcomes.",
