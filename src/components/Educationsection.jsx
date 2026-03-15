@@ -45,25 +45,38 @@ const certifications = [
     name: "Cloud Computing",
     issuer: "NPTEL",
     date: "Nov 2025",
-    color: "from-orange-500/20 to-amber-500/10",
-    accent: "#f97316",
     icon: "☁️",
+    accentColor: "#f97316",
+    accentBg: "rgba(249,115,22,0.08)",
+    // ── Paste your Google Drive share link here ──
+    link: "https://drive.google.com/file/d/1XJV5hSxsGnYKWxx6eKawNdhs_nJ7GQv9/view?usp=sharing",
   },
   {
     name: "Java Programming Course",
     issuer: "NeoColab",
     date: "Aug 2025",
-    color: "from-blue-500/20 to-cyan-500/10",
-    accent: "#3b82f6",
     icon: "☕",
+    accentColor: "#3b82f6",
+    accentBg: "rgba(59,130,246,0.08)",
+    link: "https://drive.google.com/file/d/16rDefaqDXkv_0M7JTgy1Cmv30iR_wMNN/view",
   },
   {
     name: "Data Structures & Algorithms",
     issuer: "NeoColab",
     date: "Dec 2024",
-    color: "from-violet-500/20 to-purple-500/10",
-    accent: "#8b5cf6",
     icon: "🧩",
+    accentColor: "#8b5cf6",
+    accentBg: "rgba(139,92,246,0.08)",
+    link: "https://drive.google.com/file/d/1Ejf992UCxaSEh9pNCtmgjSlwo7kjjstg/view?usp=sharing",
+  },
+  {
+    name: "Git and GitHub",
+    issuer: "Google",
+    date: "March 2026",
+    icon: "🧩",
+    accentColor: "#8b5cf6",
+    accentBg: "rgba(139,92,246,0.08)",
+    link: "https://drive.google.com/file/d/17oi429IEUwxysVDg--FL6NsdHyHxnPv7/view?usp=sharing",
   },
 ];
 
@@ -130,6 +143,7 @@ const platforms = [
   },
 ];
 
+// ── Main Section ─────────────────────────────────────────────────────────────
 export const EducationSection = () => {
   const [activeEdu, setActiveEdu] = useState(0);
 
@@ -154,9 +168,7 @@ export const EducationSection = () => {
           </p>
         </div>
 
-        {/* ══════════════════════════════
-            BLOCK 1 — EDUCATION
-        ══════════════════════════════ */}
+        {/* ══ BLOCK 1 — EDUCATION ══ */}
         <div className="mb-20">
           <SectionDivider label="Academic Timeline" />
 
@@ -198,14 +210,10 @@ export const EducationSection = () => {
             {/* Detail card */}
             <div className="lg:col-span-3">
               {education.map((edu, i) => (
-                <div
-                  key={edu.id}
-                  style={{ display: activeEdu === i ? "block" : "none" }}
-                >
+                <div key={edu.id} style={{ display: activeEdu === i ? "block" : "none" }}>
                   <div className="border border-border rounded-2xl p-8 bg-card relative overflow-hidden h-full">
                     <div className="absolute top-0 right-0 w-40 h-40 bg-primary/5 rounded-bl-full pointer-events-none" />
                     <div className="absolute bottom-0 left-0 w-24 h-24 bg-primary/3 rounded-tr-full pointer-events-none" />
-
                     <div className="relative z-10">
                       <div className="flex items-start justify-between mb-5 flex-wrap gap-4">
                         <div>
@@ -224,11 +232,9 @@ export const EducationSection = () => {
                           <p className="text-xs text-muted-foreground mt-0.5">Score</p>
                         </div>
                       </div>
-
                       <p className="text-muted-foreground text-sm mb-6 leading-relaxed">
                         {edu.description}
                       </p>
-
                       <div className="flex flex-wrap gap-2">
                         {edu.highlights.map((h) => (
                           <span
@@ -247,52 +253,67 @@ export const EducationSection = () => {
           </div>
         </div>
 
-        {/* ══════════════════════════════
-            BLOCK 2 — CERTIFICATIONS
-        ══════════════════════════════ */}
+        {/* ══ BLOCK 2 — CERTIFICATIONS ══ */}
         <div className="mb-20">
           <SectionDivider label="Certifications" />
 
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-5 mt-8">
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mt-8">
             {certifications.map((cert, i) => (
-              <div
+              <a
                 key={i}
-                className={`
-                  group relative rounded-2xl border border-border
-                  bg-gradient-to-br ${cert.color}
-                  p-6 overflow-hidden
-                  transition-all duration-300 hover:-translate-y-1.5 hover:shadow-2xl hover:border-primary/30
-                `}
+                href={cert.link}
+                target="_blank"
+                rel="noreferrer"
+                className="group text-left rounded-2xl border border-border bg-card p-5
+                  transition-all duration-300 hover:-translate-y-1.5
+                  hover:border-primary/30 hover:shadow-xl hover:shadow-primary/5
+                  no-underline block"
               >
-                <div
-                  className="absolute -top-8 -right-8 w-28 h-28 rounded-full opacity-20 blur-2xl transition-opacity duration-300 group-hover:opacity-40"
-                  style={{ backgroundColor: cert.accent }}
-                />
-                <div className="relative z-10">
-                  <span className="text-4xl mb-5 block">{cert.icon}</span>
-
+                {/* Top row */}
+                <div className="flex items-start justify-between mb-4">
                   <div
-                    className="inline-flex items-center gap-1 px-2.5 py-1 rounded-full text-xs font-bold mb-3"
-                    style={{ backgroundColor: cert.accent + "25", color: cert.accent }}
+                    className="w-11 h-11 rounded-xl flex items-center justify-center text-xl
+                      transition-transform duration-300 group-hover:scale-110"
+                    style={{ background: cert.accentBg }}
                   >
-                    <BadgeCheck size={11} /> Verified
+                    {cert.icon}
                   </div>
-
-                  <h4 className="font-bold text-base leading-snug mb-1">{cert.name}</h4>
-                  <p className="text-xs text-muted-foreground">{cert.issuer}</p>
-
-                  <div className="mt-4 pt-4 border-t border-border/40">
-                    <p className="text-xs text-muted-foreground font-mono tracking-wide">{cert.date}</p>
-                  </div>
+                  <ExternalLink
+                    size={13}
+                    className="text-muted-foreground/30 group-hover:text-primary transition-colors duration-200 mt-1"
+                  />
                 </div>
-              </div>
+
+                {/* Verified pill */}
+                <div
+                  className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[11px] font-semibold mb-3"
+                  style={{ background: cert.accentBg, color: cert.accentColor }}
+                >
+                  <BadgeCheck size={11} />
+                  Verified
+                </div>
+
+                <h4 className="font-bold text-sm leading-snug mb-1 text-foreground">
+                  {cert.name}
+                </h4>
+                <p className="text-xs text-muted-foreground">{cert.issuer}</p>
+
+                {/* Footer */}
+                <div className="mt-4 pt-4 border-t border-border/60 flex items-center justify-between">
+                  <p className="text-xs text-muted-foreground font-mono">{cert.date}</p>
+                  <span
+                    className="text-[11px] font-medium flex items-center gap-1 text-muted-foreground
+                      group-hover:text-foreground transition-colors"
+                  >
+                    View Certificate →
+                  </span>
+                </div>
+              </a>
             ))}
           </div>
         </div>
 
-        {/* ══════════════════════════════
-            BLOCK 3 — CODING PLATFORMS
-        ══════════════════════════════ */}
+        {/* ══ BLOCK 3 — CODING PLATFORMS ══ */}
         <div>
           <SectionDivider label="Practice Platforms" />
 
@@ -310,13 +331,10 @@ export const EducationSection = () => {
                   overflow-hidden no-underline cursor-pointer
                 `}
               >
-                {/* Hover glow overlay */}
                 <div
                   className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-2xl pointer-events-none"
                   style={{ boxShadow: `inset 0 0 60px ${p.color}18` }}
                 />
-
-                {/* Top row */}
                 <div className="flex items-center justify-between relative z-10">
                   <div
                     className="p-2.5 rounded-xl transition-all duration-300 group-hover:scale-110 group-hover:shadow-lg"
@@ -329,14 +347,10 @@ export const EducationSection = () => {
                     className="text-muted-foreground/30 group-hover:text-primary transition-colors duration-300"
                   />
                 </div>
-
-                {/* Name */}
                 <div className="relative z-10">
                   <h4 className="font-bold text-base">{p.name}</h4>
                   <p className="text-xs text-muted-foreground mt-0.5 font-mono">{p.handle}</p>
                 </div>
-
-                {/* Stat */}
                 <div className="mt-auto pt-4 border-t border-border/40 relative z-10">
                   <p className="text-2xl font-black" style={{ color: p.color }}>
                     {p.stat}
@@ -353,7 +367,7 @@ export const EducationSection = () => {
   );
 };
 
-// ── Reusable divider ──
+// ── Reusable divider ──────────────────────────────────────────────────────────
 const SectionDivider = ({ label }) => (
   <div className="flex items-center gap-4">
     <div className="h-px flex-1 bg-border" />
