@@ -13,6 +13,10 @@ const education = [
     description:
       "Focused on full-stack development, cloud infrastructure, and data science. Active in hackathons and competitive coding.",
     highlights: ["MERN Stack", "Cloud & DevOps", "Machine Learning", "DSA"],
+    // LPU campus — replace with your own photo path if preferred
+    image: "/projects/college.png",
+    imageFallback: "LPU",
+    accentColor: "#f97316",
   },
   {
     id: 2,
@@ -25,6 +29,10 @@ const education = [
     description:
       "Completed senior secondary education with a science stream, building a strong foundation in mathematics and physics.",
     highlights: ["Mathematics", "Physics", "Chemistry"],
+    // Generic school image — replace with actual school photo
+    image: "/projects/school.png",
+    imageFallback: "MTA",
+    accentColor: "#3b82f6",
   },
   {
     id: 3,
@@ -37,6 +45,9 @@ const education = [
     description:
       "Achieved academic excellence with strong performance across all subjects.",
     highlights: ["Top Scorer", "Science & Math"],
+    image: "/projects/school.png",
+    imageFallback: "MTA",
+    accentColor: "#8b5cf6",
   },
 ];
 
@@ -48,7 +59,6 @@ const certifications = [
     icon: "☁️",
     accentColor: "#f97316",
     accentBg: "rgba(249,115,22,0.08)",
-    // ── Paste your Google Drive share link here ──
     link: "https://drive.google.com/file/d/1XJV5hSxsGnYKWxx6eKawNdhs_nJ7GQv9/view?usp=sharing",
   },
   {
@@ -143,6 +153,144 @@ const platforms = [
   },
 ];
 
+// ── Institute Image Banner ────────────────────────────────────────────────────
+const InstituteBanner = ({ edu }) => {
+  const [imgError, setImgError] = useState(false);
+
+  return (
+    <div
+      style={{
+        position: "relative",
+        width: "100%",
+        height: "160px",
+        borderRadius: "12px 12px 0 0",
+        overflow: "hidden",
+        background: `linear-gradient(135deg, ${edu.accentColor}22, ${edu.accentColor}44)`,
+        flexShrink: 0,
+      }}
+    >
+      {!imgError ? (
+        <img
+          src={edu.image}
+          alt={edu.institution}
+          onError={() => setImgError(true)}
+          style={{
+            width: "100%",
+            height: "100%",
+            objectFit: "cover",
+            objectPosition: "center",
+            display: "block",
+          }}
+        />
+      ) : (
+        /* Fallback: stylised initials block */
+        <div
+          style={{
+            width: "100%",
+            height: "100%",
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+            justifyContent: "center",
+            gap: 8,
+            background: `linear-gradient(135deg, ${edu.accentColor}18, ${edu.accentColor}35)`,
+          }}
+        >
+          {/* Grid pattern texture */}
+          <svg
+            style={{ position: "absolute", inset: 0, opacity: 0.06 }}
+            width="100%"
+            height="100%"
+          >
+            <defs>
+              <pattern id="grid" width="24" height="24" patternUnits="userSpaceOnUse">
+                <path d="M 24 0 L 0 0 0 24" fill="none" stroke="currentColor" strokeWidth="0.5" />
+              </pattern>
+            </defs>
+            <rect width="100%" height="100%" fill="url(#grid)" />
+          </svg>
+          <div
+            style={{
+              width: 56,
+              height: 56,
+              borderRadius: "14px",
+              background: edu.accentColor + "33",
+              border: `2px solid ${edu.accentColor}55`,
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              fontSize: "1.25rem",
+              fontWeight: 800,
+              color: edu.accentColor,
+              letterSpacing: "0.05em",
+            }}
+          >
+            {edu.imageFallback}
+          </div>
+          <p style={{ fontSize: "0.7rem", color: edu.accentColor, opacity: 0.7, margin: 0 }}>
+            {edu.institution}
+          </p>
+        </div>
+      )}
+
+      {/* Dark gradient overlay so text is always readable */}
+      <div
+        style={{
+          position: "absolute",
+          inset: 0,
+          background:
+            "linear-gradient(to top, rgba(0,0,0,0.72) 0%, rgba(0,0,0,0.28) 55%, transparent 100%)",
+          pointerEvents: "none",
+        }}
+      />
+
+      {/* Institution name floating at bottom of banner */}
+      <div
+        style={{
+          position: "absolute",
+          bottom: 0,
+          left: 0,
+          right: 0,
+          padding: "10px 20px 12px",
+        }}
+      >
+        <div
+          style={{
+            display: "inline-flex",
+            alignItems: "center",
+            gap: 6,
+            background: edu.accentColor + "22",
+            border: `1px solid ${edu.accentColor}44`,
+            backdropFilter: "blur(8px)",
+            borderRadius: 999,
+            padding: "3px 10px",
+          }}
+        >
+          <div
+            style={{
+              width: 6,
+              height: 6,
+              borderRadius: "50%",
+              background: edu.accentColor,
+              flexShrink: 0,
+            }}
+          />
+          <span
+            style={{
+              fontSize: "0.7rem",
+              fontWeight: 700,
+              color: "#fff",
+              letterSpacing: "0.04em",
+            }}
+          >
+            {edu.institution}
+          </span>
+        </div>
+      </div>
+    </div>
+  );
+};
+
 // ── Main Section ─────────────────────────────────────────────────────────────
 export const EducationSection = () => {
   const [activeEdu, setActiveEdu] = useState(0);
@@ -207,43 +355,70 @@ export const EducationSection = () => {
               ))}
             </div>
 
-            {/* Detail card */}
+            {/* Detail card with institute image */}
             <div className="lg:col-span-3">
               {education.map((edu, i) => (
                 <div key={edu.id} style={{ display: activeEdu === i ? "block" : "none" }}>
-                  <div className="border border-border rounded-2xl p-8 bg-card relative overflow-hidden h-full">
-                    <div className="absolute top-0 right-0 w-40 h-40 bg-primary/5 rounded-bl-full pointer-events-none" />
-                    <div className="absolute bottom-0 left-0 w-24 h-24 bg-primary/3 rounded-tr-full pointer-events-none" />
-                    <div className="relative z-10">
-                      <div className="flex items-start justify-between mb-5 flex-wrap gap-4">
-                        <div>
-                          <h3 className="text-xl font-bold mb-2">{edu.degree}</h3>
-                          <div className="flex flex-wrap items-center gap-3 text-xs text-muted-foreground">
-                            <span className="flex items-center gap-1">
-                              <MapPin size={11} /> {edu.location}
-                            </span>
-                            <span className="flex items-center gap-1">
-                              <Calendar size={11} /> {edu.duration}
-                            </span>
+                  <div
+                    className="border border-border rounded-2xl bg-card overflow-hidden"
+                    style={{
+                      transition: "box-shadow 0.3s ease",
+                      boxShadow: `0 0 0 1px ${edu.accentColor}22, 0 8px 32px rgba(0,0,0,0.12)`,
+                    }}
+                  >
+                    {/* ── Campus Image Banner ── */}
+                    <InstituteBanner edu={edu} />
+
+                    {/* ── Card body ── */}
+                    <div className="p-6 relative overflow-hidden">
+                      <div className="absolute top-0 right-0 w-40 h-40 bg-primary/5 rounded-bl-full pointer-events-none" />
+
+                      <div className="relative z-10">
+                        {/* Degree + score row */}
+                        <div className="flex items-start justify-between mb-4 flex-wrap gap-4">
+                          <div>
+                            <h3 className="text-lg font-bold mb-2 leading-snug">
+                              {edu.degree}
+                            </h3>
+                            <div className="flex flex-wrap items-center gap-3 text-xs text-muted-foreground">
+                              <span className="flex items-center gap-1">
+                                <MapPin size={11} /> {edu.location}
+                              </span>
+                              <span className="flex items-center gap-1">
+                                <Calendar size={11} /> {edu.duration}
+                              </span>
+                            </div>
+                          </div>
+                          <div className="text-right shrink-0">
+                            <p
+                              className="text-3xl font-black"
+                              style={{ color: edu.accentColor }}
+                            >
+                              {edu.grade}
+                            </p>
+                            <p className="text-xs text-muted-foreground mt-0.5">Score</p>
                           </div>
                         </div>
-                        <div className="text-right shrink-0">
-                          <p className="text-3xl font-black text-primary">{edu.grade}</p>
-                          <p className="text-xs text-muted-foreground mt-0.5">Score</p>
+
+                        <p className="text-muted-foreground text-sm mb-5 leading-relaxed">
+                          {edu.description}
+                        </p>
+
+                        <div className="flex flex-wrap gap-2">
+                          {edu.highlights.map((h) => (
+                            <span
+                              key={h}
+                              className="px-3 py-1 text-xs font-medium rounded-full"
+                              style={{
+                                border: `1px solid ${edu.accentColor}44`,
+                                background: edu.accentColor + "14",
+                                color: edu.accentColor,
+                              }}
+                            >
+                              {h}
+                            </span>
+                          ))}
                         </div>
-                      </div>
-                      <p className="text-muted-foreground text-sm mb-6 leading-relaxed">
-                        {edu.description}
-                      </p>
-                      <div className="flex flex-wrap gap-2">
-                        {edu.highlights.map((h) => (
-                          <span
-                            key={h}
-                            className="px-3 py-1 text-xs font-medium rounded-full border border-primary/30 bg-primary/10 text-primary"
-                          >
-                            {h}
-                          </span>
-                        ))}
                       </div>
                     </div>
                   </div>
@@ -269,7 +444,6 @@ export const EducationSection = () => {
                   hover:border-primary/30 hover:shadow-xl hover:shadow-primary/5
                   no-underline block"
               >
-                {/* Top row */}
                 <div className="flex items-start justify-between mb-4">
                   <div
                     className="w-11 h-11 rounded-xl flex items-center justify-center text-xl
@@ -284,7 +458,6 @@ export const EducationSection = () => {
                   />
                 </div>
 
-                {/* Verified pill */}
                 <div
                   className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[11px] font-semibold mb-3"
                   style={{ background: cert.accentBg, color: cert.accentColor }}
@@ -298,13 +471,9 @@ export const EducationSection = () => {
                 </h4>
                 <p className="text-xs text-muted-foreground">{cert.issuer}</p>
 
-                {/* Footer */}
                 <div className="mt-4 pt-4 border-t border-border/60 flex items-center justify-between">
                   <p className="text-xs text-muted-foreground font-mono">{cert.date}</p>
-                  <span
-                    className="text-[11px] font-medium flex items-center gap-1 text-muted-foreground
-                      group-hover:text-foreground transition-colors"
-                  >
+                  <span className="text-[11px] font-medium flex items-center gap-1 text-muted-foreground group-hover:text-foreground transition-colors">
                     View Certificate →
                   </span>
                 </div>
